@@ -1,4 +1,4 @@
-# Miyota 82S0 Digital Twin — Timex TWEG16716 Skeleton Automatic
+# Miyota 82S0 Digital Twin: Timex TWEG16716 Skeleton Automatic
 
 **Author:** Anwesh Ajitabh Dash
 
