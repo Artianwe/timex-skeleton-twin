@@ -1,0 +1,141 @@
+<title>Miyota 82S0 Digital Twin</title>
+<meta name="author" content="Anwesh Ajitabh Dash">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>/*__CSS__*/</style>
+<div class="app" id="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div>
+        <div class="brand-title">Miyota 82S0 Digital Twin</div>
+        <div class="brand-sub">Timex TWEG16716 · 21,600 vph Swiss lever · 21 jewels · by Anwesh Ajitabh Dash</div>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Dashboard sections">
+      <button role="tab" id="tab-live" data-tab="live" aria-selected="true">Live</button>
+      <button role="tab" id="tab-esc" data-tab="esc" aria-selected="false">Escapement</button>
+      <button role="tab" id="tab-time" data-tab="time" aria-selected="false">Timekeeping</button>
+      <button role="tab" id="tab-exp" data-tab="exp" aria-selected="false">Experiments</button>
+      <button role="tab" id="tab-val" data-tab="val" aria-selected="false">Validation</button>
+      <button role="tab" id="tab-par" data-tab="par" aria-selected="false">Parameters</button>
+      <button role="tab" id="tab-about" data-tab="about" aria-selected="false">About</button>
+    </nav>
+  </header>
+
+  <main class="workspace">
+    <section class="bench" aria-label="3D movement viewer">
+      <div class="viewport" id="viewport">
+        <div class="hud hud-tl">
+          <div class="clock" id="clock">00:00:00</div>
+          <div class="hud-line"><span id="hud-state">Running</span> · <span id="hud-pos">Dial up</span></div>
+          <div class="hud-line" id="hud-event"></div>
+        </div>
+        <div class="hud hud-tr" id="selinfo" hidden></div>
+        <div class="loading" id="loading">Building the movement…</div>
+      </div>
+      <div class="controls" aria-label="Simulation controls">
+        <div class="ctl-row">
+          <button class="btn" id="btn-play" aria-pressed="true">Pause</button>
+          <button class="btn" id="btn-prev" title="Previous escapement event">◀ Event</button>
+          <button class="btn" id="btn-next" title="Next escapement event">Event ▶</button>
+          <label class="speed" for="speed">Speed <output id="speed-out">1×</output>
+            <input type="range" id="speed" min="0" max="100" value="50">
+          </label>
+          <div class="presets">
+            <button class="chip" data-speed="0.002">Slow-mo</button>
+            <button class="chip" data-speed="1">1×</button>
+            <button class="chip" data-speed="60">60×</button>
+            <button class="chip" data-speed="3600">3600×</button>
+          </div>
+        </div>
+        <div class="ctl-row">
+          <label for="position">Position
+            <select id="position">
+              <option value="DU">Dial up</option><option value="DD">Dial down</option>
+              <option value="CU">Crown up</option><option value="CD">Crown down</option>
+              <option value="CL">Crown left</option><option value="CR">Crown right</option>
+            </select>
+          </label>
+          <button class="btn" id="btn-wind" title="Ten turns of the crown">Wind crown ×10</button>
+          <button class="btn" id="btn-full">Full wind</button>
+          <button class="btn" id="btn-hack" aria-pressed="false">Pull crown (hack)</button>
+          <button class="btn" id="btn-wrist" aria-pressed="false">Wrist motion</button>
+        </div>
+        <div class="ctl-row toggles">
+          <label><input type="checkbox" id="t-skeleton"> Skeleton</label>
+          <label><input type="checkbox" id="t-bridges" checked> Bridges &amp; plate</label>
+          <label><input type="checkbox" id="t-dial" checked> Dial, hands &amp; case</label>
+          <label><input type="checkbox" id="t-rotor" checked> Rotor</label>
+          <label><input type="checkbox" id="t-labels"> Labels</label>
+          <label><input type="checkbox" id="t-arrows"> Rotation arrows</label>
+          <label><input type="checkbox" id="t-flow"> Torque / power flow</label>
+          <label class="explode" for="explode">Explode <input type="range" id="explode" min="0" max="100" value="0"></label>
+          <button class="chip" id="btn-view-dial">Dial view</button>
+          <button class="chip" id="btn-view-back">Caseback</button>
+          <button class="chip" id="btn-view-iso">Isometric</button>
+          <button class="chip" id="btn-isolate" disabled>Isolate selection</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="Engineering dashboard">
+      <div class="tabpanel" id="panel-live" role="tabpanel" aria-labelledby="tab-live">
+        <div class="kpis" id="kpis"></div>
+        <div class="charts" id="live-charts"></div>
+        <details class="datatable"><summary>Data table (power reserve, every 2 h)</summary><div id="live-table"></div></details>
+      </div>
+      <div class="tabpanel" id="panel-esc" role="tabpanel" aria-labelledby="tab-esc" hidden>
+        <p class="lede">One beat of the Swiss lever escapement, resolved event by event from the hybrid simulation (full wind, dial up). Use <b>Event ▶</b> under the viewer to step the 3-D model through the same sequence.</p>
+        <div class="chart tall" id="esc-chart"></div>
+        <div id="esc-table"></div>
+        <div class="note" id="esc-energy"></div>
+      </div>
+      <div class="tabpanel" id="panel-time" role="tabpanel" aria-labelledby="tab-time" hidden>
+        <div class="seg" role="group" aria-label="State of wind">
+          <button class="chip on" data-pt="full">Full wind</button><button class="chip" data-pt="after_24h">After 24 h</button>
+        </div>
+        <div class="charts two" id="time-charts"></div>
+        <div id="pos-table"></div>
+        <h3>Error decomposition at full wind</h3>
+        <div id="decomp-table"></div>
+        <h3>Self-winding</h3>
+        <div class="charts two" id="auto-charts"></div>
+      </div>
+      <div class="tabpanel" id="panel-exp" role="tabpanel" aria-labelledby="tab-exp" hidden>
+        <p class="lede">Each parameter was perturbed by ±10 % (clipped to its plausible range) and the full model re-run: limit cycles in four positions, energy flow and power reserve. Choose an output to rank the parameters, or a parameter to see every output change.</p>
+        <div class="ctl-row">
+          <label for="exp-out">Output <select id="exp-out"></select></label>
+          <label for="exp-par">Parameter <select id="exp-par"></select></label>
+        </div>
+        <div class="chart tall" id="tornado"></div>
+        <div id="exp-table"></div>
+        <h3>Uncertainty propagation (Monte-Carlo over every estimated parameter)</h3>
+        <div class="charts two" id="mc-charts"></div>
+        <div class="note">Run any combination locally:<code>python -m twin experiment --set balance.inertia_scale=1.01 --set damping.q_air=400</code></div>
+      </div>
+      <div class="tabpanel" id="panel-val" role="tabpanel" aria-labelledby="tab-val" hidden>
+        <div id="val-summary"></div>
+        <div id="val-table"></div>
+        <div class="charts" id="val-charts"></div>
+      </div>
+      <div class="tabpanel" id="panel-par" role="tabpanel" aria-labelledby="tab-par" hidden>
+        <div class="ctl-row">
+          <label for="par-search">Search <input type="search" id="par-search" placeholder="e.g. balance, escapement, mm"></label>
+          <div class="seg" id="prov-filter" role="group" aria-label="Provenance filter"></div>
+        </div>
+        <div id="par-table"></div>
+        <h3>Derived quantities and their governing equations</h3>
+        <div id="der-table"></div>
+      </div>
+      <div class="tabpanel" id="panel-about" role="tabpanel" aria-labelledby="tab-about" hidden>
+        <div id="about"></div>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="tooltip" id="tip" hidden></div>
+<script type="application/json" id="twin-data">/*__DATA__*/</script>
+<script type="application/json" id="twin-geo">/*__GEO__*/</script>
+<!--__LIBS__-->
+<script>/*__JS__*/</script>

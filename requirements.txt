@@ -1,0 +1,14 @@
+# core model, simulation and analysis
+numpy>=1.26
+scipy>=1.11
+numba>=0.59
+pyyaml>=6.0
+matplotlib>=3.8
+shapely>=2.0
+# CAD export (STEP via OpenCascade) and meshes (GLB)
+cadquery>=2.4
+trimesh>=4.0
+mapbox-earcut>=1.0
+# tests and the headless web smoke test
+pytest>=8.0
+playwright>=1.40     # optional: tools/web_smoke_test.py

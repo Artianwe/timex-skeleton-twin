@@ -1,0 +1,261 @@
+# =====================================================================================
+#  CENTRAL PARAMETER DATABASE — Timex TWEG16716 "Full Skeleton Automatic" digital twin
+#  Author: Anwesh Ajitabh Dash
+# =====================================================================================
+#
+#  Every physical parameter is a leaf of the form
+#      name: {value: <number>, unit: <unit>, prov: <provenance>, src: <source / rationale>,
+#             range: [min, max]  # optional plausible range used by sensitivity / Monte-Carlo
+#            }
+#  Values are written in convenient engineering units and converted to SI by twin.params.
+#
+#  PROVENANCE (prov) — strictly one of:
+#    measured : observed on the owner's watch (engraving, photo, photogrammetry)
+#    sourced  : manufacturer / reference documentation (Miyota spec sheet, parts list, etc.)
+#    inferred : derived from measured/sourced data through a stated constraint or physics
+#    assumed  : engineering estimate typical for this class of movement (configurable!)
+#  "VERIFIED" = measured or sourced.   "ESTIMATED" = inferred-from-assumptions or assumed.
+#
+#  Caliber identification (see docs/01_identification.md): Miyota (Citizen) Cal. 82S0 —
+#  stated by the owner, consistent with photos (balance under open heart at ~7:30 dial view,
+#  21 jewels, central H/M/S, no date) and with Miyota's official 82S0 documents.
+#
+#  Frames: DIAL VIEW, x -> 3 o'clock (crown), y -> 12 o'clock, z -> toward the dial/viewer.
+#          z = 0 at the dial-side face of the main plate; bridges/rotor are at negative z.
+#          Angles in the plane are counter-clockwise from 3 o'clock (dial view).
+# =====================================================================================
+
+meta:
+  title: "Digital twin of Timex TWEG16716 (Miyota 82S0, 21,600 vph Swiss-lever automatic)"
+  author: "Anwesh Ajitabh Dash"
+  version: "1.0.0"
+
+identification:
+  watch_reference: "TWEG16716-E5 (Timex E-Class Full Skeleton Automatic)"
+  watch_reference_source: "Caseback engraving 'TW?G16716-E5' (partly obscured) + retailer listings"
+  caliber: "Miyota 82S0 (Citizen Watch Mfg.), 11 1/2 ligne, open heart"
+  caliber_source: "Owner statement + Miyota 82S0 spec sheet / parts list; photo evidence consistent"
+  caliber_confidence: "high"
+  caliber_notes: "82S0 and skeleton sibling 8N24 share balance 039-102, escape wheel 032-106, pallet fork 035-560, 3rd/4th wheels and barrel 001-870, so the dynamic model is identical for both."
+  architecture: "Mechanical self-winding (unidirectional central rotor) + hand winding, hacking, Swiss lever escapement, indirect centre seconds"
+
+# -------------------------------------------------------------------------------------
+watch:
+  case_diameter:        {value: 44.0, unit: mm, prov: measured, src: "Caseback engraving '44 MM CASE'"}
+  case_thickness:       {value: 13.15, unit: mm, prov: assumed, src: "Sibling E-Class 44 mm model TWEG16720 retailer spec; not verified on TWEG16716", range: [12.0, 14.0]}
+  lug_width:            {value: 22.0, unit: mm, prov: assumed, src: "Sibling E-Class 44 mm model TWEG16720 retailer spec", range: [20.0, 22.0]}
+  water_resistance:     {value: 50.0, unit: m, prov: measured, src: "Caseback engraving 'WATER RESISTANT 50M'"}
+  jewels:               {value: 21, unit: "1", prov: measured, src: "Caseback engraving '21 JEWELS AUTOMATIC'; matches Miyota 82S0 spec"}
+  power_reserve_listed: {value: 40.0, unit: h, prov: sourced, src: "Timex listing for TWEG16716 (Kamal Watch Co.); also stated by owner"}
+
+# -------------------------------------------------------------------------------------
+movement:
+  diameter:             {value: 25.6, unit: mm, prov: sourced, src: "Grail Watch Reference, Miyota 82 family (11.5 ligne)"}
+  casing_diameter:      {value: 26.0, unit: mm, prov: sourced, src: "Miyota 82S spec sheet (case diameter 26.00)"}
+  height:               {value: 5.67, unit: mm, prov: sourced, src: "Miyota 82S0 product page / 82S spec sheet"}
+  frequency:            {value: 21600, unit: vph, prov: measured, src: "Owner counted 6 seconds-hand steps per second (slow-motion video); = Miyota 82S0 spec"}
+  lift_angle:           {value: 49.0, unit: deg, prov: sourced, src: "Miyota 82S spec sheet (lift angle 49 degree)"}
+  power_reserve:        {value: 42.0, unit: h, prov: sourced, src: "Miyota 82S0 spec ('approximately 42 hours'); Timex lists 40 h"}
+  rate_spec_min:        {value: -20.0, unit: s/day, prov: sourced, src: "Miyota 82S0 spec: daily rate -20 ~ +40 s (10-60 min after full wind)"}
+  rate_spec_max:        {value: 40.0, unit: s/day, prov: sourced, src: "Miyota 82S0 spec: daily rate -20 ~ +40 s"}
+  posture_difference_max: {value: 50.0, unit: s/day, prov: sourced, src: "Miyota 82S0 spec: posture difference under 50 s"}
+  full_wind_crown_turns: {value: 40, unit: "1", prov: sourced, src: "Miyota spec-sheet measurement condition: 'turn the crown 40 times'"}
+  hand_clearance_min:   {value: 0.45, unit: mm, prov: sourced, src: "Miyota 82S spec sheet: hand clearance 0.45 mm min"}
+  case_clearance_min:   {value: 0.25, unit: mm, prov: sourced, src: "Miyota 82S spec sheet: case clearance 0.25 mm min"}
+  hour_hand_hole:       {value: 1.50, unit: mm, prov: sourced, src: "Caliber Corner data for 82 family"}
+  minute_hand_hole:     {value: 1.00, unit: mm, prov: sourced, src: "Caliber Corner data for 82 family"}
+  seconds_hand_hole:    {value: 0.17, unit: mm, prov: sourced, src: "Caliber Corner data for 82 family"}
+  hacking:              {value: 1, unit: bool, prov: measured, src: "Owner: seconds hand stops when crown is pulled (= Miyota 'Stop second device', brake lever 269-408)"}
+  hand_winding:         {value: 1, unit: bool, prov: sourced, src: "Miyota 82S0: automatic and hand winding"}
+
+# -------------------------------------------------------------------------------------
+layout:   # planar positions of the main arbors (dial view)
+  balance_centre_radius: {value: 7.5, unit: mm, prov: measured, src: "Photogrammetry, 2 photos, 4 reference centres: median 7.56 (5.6-8.6); capped by fit-in-movement constraint", range: [6.8, 7.7]}
+  balance_centre_angle:  {value: 225.0, unit: deg, prov: sourced, src: "Grail: 82S0 balance at 4:30 (caseback view, stem at 9) = 7:30 dial view; open heart at 7:00; photogrammetry median 222.9 deg (209-240)", range: [210.0, 240.0]}
+  barrel_angle:          {value: 70.0, unit: deg, prov: assumed, src: "Barrel placed opposite the balance near 12-1 o'clock (dial view); round barrel-like feature visible there through skeleton dial", range: [40.0, 110.0]}
+  escapement_line_straight: {value: 1, unit: bool, prov: assumed, src: "Straight-line Swiss lever: escape wheel, pallet arbor and balance staff collinear"}
+  margin_to_edge:        {value: 0.30, unit: mm, prov: assumed, src: "Minimum radial clearance between moving parts and movement edge"}
+
+# -------------------------------------------------------------------------------------
+train:    # going train tooth counts (no public data: assumed values satisfying hard constraints)
+  barrel_teeth:        {value: 75, unit: "1", prov: assumed, src: "Typical 11.5''' automatic; sets barrel speed (1/7.5 rev/h)", range: [70, 84]}
+  center_pinion:       {value: 10, unit: "1", prov: assumed, src: "Typical 10-12 leaf centre pinion"}
+  center_wheel:        {value: 80, unit: "1", prov: assumed, src: "Typical; with third pinion 10 gives 8:1"}
+  third_pinion:        {value: 10, unit: "1", prov: assumed, src: "Typical"}
+  third_wheel:         {value: 75, unit: "1", prov: inferred, src: "Constraint: (centre/3rd pinion)*(3rd wheel/4th pinion) = 60 so 4th wheel turns 1 rpm"}
+  fourth_pinion:       {value: 10, unit: "1", prov: assumed, src: "Typical"}
+  seconds_pinion:      {value: 10, unit: "1", prov: inferred, src: "Centre second pinion 025-670 (parts list) driven by 3rd wheel (Caliber Corner); must turn 1 rpm => equal to 4th pinion"}
+  fourth_wheel:        {value: 84, unit: "1", prov: inferred, src: "Constraint: escape wheel must turn 12 rpm (21,600 vph, 15 teeth) => 4th wheel/escape pinion = 12"}
+  escape_pinion:       {value: 7, unit: "1", prov: assumed, src: "Typical 7-leaf escape pinion (84/7 = 12)"}
+  escape_teeth:        {value: 15, unit: "1", prov: assumed, src: "Universal Swiss-lever practice (15-tooth club-tooth wheel)"}
+  module_barrel:       {value: 0.137, unit: mm, prov: assumed, src: "Barrel pitch diameter ~10.3 mm"}
+  module_center:       {value: 0.090, unit: mm, prov: assumed, src: "Centre wheel pitch diameter 7.2 mm"}
+  module_fourth:       {value: 0.070, unit: mm, prov: assumed, src: "Fourth wheel pitch diameter 5.9 mm"}
+  # module of the 3rd wheel mesh is INFERRED: third wheel meshes the coaxial seconds pinion on the
+  # same two axes as centre wheel/third pinion => m3 = m_center*(Zc+z3p)/(Z3+zsp)
+
+motion_works:
+  cannon_pinion:       {value: 10, unit: "1", prov: assumed, src: "Classic watch motion works 10/30 - 8/32"}
+  minute_wheel:        {value: 30, unit: "1", prov: assumed, src: "Classic watch motion works"}
+  minute_pinion:       {value: 8, unit: "1", prov: assumed, src: "Classic watch motion works"}
+  hour_wheel:          {value: 32, unit: "1", prov: inferred, src: "Two constraints: (30/10)*(32/8) = 12 (hour hand 1 rev/12 h) AND 10+30 = 8+32 (minute wheel meshes two coaxial gears with one module)"}
+  module:              {value: 0.075, unit: mm, prov: assumed, src: "Typical motion-work module"}
+
+keyless:
+  winding_pinion:      {value: 12, unit: "1", prov: assumed, src: "Typical"}
+  crown_wheel:         {value: 24, unit: "1", prov: assumed, src: "Idler between winding pinion and ratchet"}
+  ratchet_wheel:       {value: 56, unit: "1", prov: assumed, src: "Chosen so ~35 crown turns wind the spring fully (spec says 40 turns suffice)", range: [44, 64]}
+  efficiency:          {value: 0.80, unit: "1", prov: assumed, src: "Contrate/idler mesh + click friction", range: [0.6, 0.9]}
+
+autowinding:
+  rotor_mass:          {value: 3.0, unit: g, prov: assumed, src: "Half-disc brass rotor ~R12.5 mm (photo)", range: [2.0, 4.5]}
+  rotor_radius:        {value: 12.3, unit: mm, prov: inferred, src: "Movement radius minus clearance (photo: rotor spans movement)"}
+  rotor_cm_radius:     {value: 6.5, unit: mm, prov: assumed, src: "Half-disc with heavy rim: between 4R/3pi (5.2) and rim (11)", range: [5.2, 8.0]}
+  rotor_pinion:        {value: 12, unit: "1", prov: assumed, src: "Pinion on oscillating-weight hub"}
+  reversing_wheel:     {value: 36, unit: "1", prov: assumed, src: "Reversing wheel 141-190 (count assumed)"}
+  reversing_pinion:    {value: 9, unit: "1", prov: assumed, src: "Pinion of ratchet sliding wheel 087-250 (count assumed)"}
+  reduction_wheel:     {value: 45, unit: "1", prov: assumed, src: "Reduction wheel 088-120 (count assumed)"}
+  reduction_pinion:    {value: 8, unit: "1", prov: assumed, src: "Drives ratchet wheel"}
+  module:              {value: 0.10, unit: mm, prov: assumed, src: "Automatic-works module"}
+  efficiency:          {value: 0.60, unit: "1", prov: assumed, src: "Pawl/click + reduction train efficiency", range: [0.4, 0.8]}
+  bearing_friction:    {value: 2.0e-6, unit: N*m, prov: assumed, src: "Rotor ball/plain bearing drag", range: [0.5e-6, 5.0e-6]}
+  winding_direction:   {value: -1, unit: "1", prov: sourced, src: "Unidirectional, counter-clockwise viewed from caseback (Grail) = clockwise (negative) in dial view"}
+
+# -------------------------------------------------------------------------------------
+mainspring:
+  youngs_modulus:      {value: 200.0, unit: GPa, prov: assumed, src: "Co-Ni-Cr mainspring alloy (Nivaflex-type) ~200-220 GPa", range: [190.0, 220.0]}
+  working_stress:      {value: 2400.0, unit: MPa, prov: assumed, src: "Max bending stress at full wind for Nivaflex-type springs", range: [2100.0, 2800.0]}
+  height:              {value: 1.00, unit: mm, prov: assumed, src: "Fits barrel within 5.55 mm movement height", range: [0.90, 1.10]}
+  thickness:           {value: 0.095, unit: mm, prov: assumed, src: "Typical 11.5''' automatic (0.09-0.10 mm)", range: [0.088, 0.105]}
+  barrel_inner_radius: {value: 4.60, unit: mm, prov: assumed, src: "Barrel ~10.3 mm pitch diameter less wall", range: [4.4, 4.8]}
+  arbor_radius:        {value: 1.55, unit: mm, prov: assumed, src: "Design rule arbor ~1/3 barrel inner diameter", range: [1.4, 1.7]}
+  fill_factor:         {value: 0.50, unit: "1", prov: assumed, src: "Classical design rule: spring occupies half the annulus => max turns"}
+  development_factor:  {value: 0.7478, unit: "1", prov: inferred, src: "CALIBRATED: usable fraction of theoretical turns set so DU power reserve = 42 h (Miyota spec). Blind estimate 0.85 predicted 47.7 h (+13.6%)", range: [0.70, 0.92]}
+  coil_friction:       {value: 0.08, unit: "1", prov: assumed, src: "Inter-coil friction: output torque = (1-x) * elastic torque while unwinding", range: [0.04, 0.15]}
+  end_rolloff:         {value: 0.06, unit: "1", prov: assumed, src: "Fraction of development over which torque collapses near let-down", range: [0.03, 0.12]}
+  density:             {value: 8300.0, unit: kg/m^3, prov: assumed, src: "Co-Ni alloy"}
+
+# -------------------------------------------------------------------------------------
+balance:
+  rim_outer_diameter:  {value: 9.54, unit: mm, prov: measured, src: "Photogrammetry: 9.52 (caseback) / 9.57 (dial) mm; tools/photogrammetry.py", range: [9.2, 9.9]}
+  rim_radial_width:    {value: 0.45, unit: mm, prov: assumed, src: "Typical glucydur-type rim", range: [0.38, 0.55]}
+  rim_thickness:       {value: 0.40, unit: mm, prov: assumed, src: "Typical axial rim height", range: [0.32, 0.50]}
+  arms:                {value: 3, unit: "1", prov: assumed, src: "Three-arm balance (visible arms through skeleton dial)"}
+  arm_width:           {value: 0.35, unit: mm, prov: assumed, src: "Typical"}
+  arm_thickness:       {value: 0.18, unit: mm, prov: assumed, src: "Typical"}
+  density:             {value: 8250.0, unit: kg/m^3, prov: inferred, src: "Gold-coloured rim in photos => Cu-Be (glucydur-type) alloy", range: [7900.0, 8500.0]}
+  staff_assembly_mass: {value: 6.0, unit: mg, prov: assumed, src: "Staff + double roller + impulse pin + collet", range: [4.0, 9.0]}
+  staff_assembly_radius_of_gyration: {value: 0.40, unit: mm, prov: assumed, src: "Roller table dominates"}
+  pivot_radius:        {value: 0.045, unit: mm, prov: assumed, src: "Typical balance pivot dia 0.08-0.10 mm", range: [0.04, 0.055]}
+  end_contact_radius:  {value: 0.015, unit: mm, prov: assumed, src: "Effective friction radius of domed pivot end on cap jewel", range: [0.008, 0.025]}
+  pivot_friction_coeff: {value: 0.12, unit: "1", prov: assumed, src: "Oiled steel on synthetic ruby", range: [0.08, 0.18]}
+  unpoise_offset:      {value: 1.5, unit: um, prov: assumed, src: "Centre-of-mass offset of an unadjusted balance", range: [0.0, 4.0]}
+  unpoise_angle:       {value: 30.0, unit: deg, prov: assumed, src: "Heavy-spot direction at rest (balance frame); arbitrary", range: [0.0, 360.0]}
+  inertia_scale:       {value: 1.0, unit: "1", prov: assumed, src: "Perturbation of an EXISTING balance (e.g. added mass, screws); hairspring not re-matched -> changes rate. 1 = as built", range: [0.98, 1.02]}
+  beat_offset:         {value: 1.5, unit: deg, prov: assumed, src: "Hairspring neutral vs escapement line of centres (source of beat error)", range: [0.0, 4.0]}
+
+hairspring:
+  design_frequency:    {value: 3.0, unit: Hz, prov: inferred, src: "21,600 vph = 6 beats/s = 3 full oscillations/s"}
+  youngs_modulus:      {value: 190.0, unit: GPa, prov: assumed, src: "Nivarox-type Fe-Ni alloy", range: [180.0, 200.0]}
+  height:              {value: 0.10, unit: mm, prov: assumed, src: "Typical strip height; chosen with thickness so derived length gives 12-15 turns (plausibility check)", range: [0.09, 0.12]}
+  thickness:           {value: 0.030, unit: mm, prov: assumed, src: "Typical strip thickness (0.028-0.034 mm)", range: [0.028, 0.034]}
+  inner_radius:        {value: 0.55, unit: mm, prov: assumed, src: "Collet radius"}
+  outer_radius:        {value: 2.55, unit: mm, prov: assumed, src: "Stud radius (flat spring, regulator index)"}
+  density:             {value: 8150.0, unit: kg/m^3, prov: assumed, src: "Fe-Ni alloy"}
+  stiffness_scale:     {value: 1.0, unit: "1", prov: assumed, src: "Perturbation of the fitted hairspring stiffness (temperature, magnetism, ageing); 1 = as built", range: [0.98, 1.02]}
+  regulator_offset:    {value: 0.0, unit: s/day, prov: assumed, src: "Regulator index position expressed as rate offset of the free oscillator", range: [-30.0, 30.0]}
+  cubic_stiffness:     {value: 0.0, unit: 1/rad^2, prov: assumed, src: "Isochronism nonlinearity k(theta)=k0(1+b*theta^2); 0 = ideal linear spring. Duffing: df/f = 3/8 b A^2, so 5e-5 ~ +/-40 s/day at 270 deg", range: [-5.0e-5, 5.0e-5]}
+
+damping:  # balance damping split into equivalent-viscous mechanisms (quality factors at 3 Hz)
+  q_air:               {value: 520.0, unit: "1", prov: assumed, src: "Aerodynamic drag on rim/arms (order of magnitude from vacuum-vs-air Q comparisons)", range: [300.0, 900.0]}
+  q_hairspring:        {value: 2200.0, unit: "1", prov: assumed, src: "Internal (anelastic) damping of hairspring", range: [1200.0, 4000.0]}
+  q_oil:               {value: 900.0, unit: "1", prov: assumed, src: "Viscous drag of pivot oil", range: [500.0, 1500.0]}
+
+# -------------------------------------------------------------------------------------
+escapement:   # Swiss lever, straight line, club-tooth wheel
+  escape_tip_radius:   {value: 2.10, unit: mm, prov: assumed, src: "Typical 11.5''' 3 Hz escape wheel (dia ~4.2 mm)", range: [1.9, 2.3]}
+  pallet_span:         {value: 60.0, unit: deg, prov: assumed, src: "Pallets embrace 2.5 tooth pitches (tangent locking geometry)"}
+  pallet_to_balance:   {value: 3.50, unit: mm, prov: assumed, src: "Pallet arbor to balance staff distance", range: [3.1, 3.9]}
+  lock_angle:          {value: 1.5, unit: deg, prov: assumed, src: "Fork rotation for lock (Swiss practice 1.5-2 deg)", range: [1.0, 2.5]}
+  run_angle:           {value: 0.5, unit: deg, prov: assumed, src: "Run to banking", range: [0.25, 1.0]}
+  impulse_angle:       {value: 8.5, unit: deg, prov: assumed, src: "Fork rotation during impulse (lift of pallets)", range: [7.5, 9.5]}
+  drop_angle:          {value: 1.5, unit: deg, prov: assumed, src: "Escape-wheel free rotation after let-off", range: [1.0, 2.5]}
+  draw_angle:          {value: 12.0, unit: deg, prov: assumed, src: "Locking-face draw (Swiss practice 12-15 deg)", range: [10.0, 15.0]}
+  pallet_friction_coeff: {value: 0.15, unit: "1", prov: assumed, src: "Oiled ruby on steel", range: [0.10, 0.22]}
+  impulse_plane_angle: {value: 35.0, unit: deg, prov: assumed, src: "Effective inclination of combined tooth/pallet impulse planes", range: [28.0, 42.0]}
+  pin_efficiency:      {value: 0.97, unit: "1", prov: assumed, src: "Impulse-pin / fork-slot transmission efficiency", range: [0.93, 0.99]}
+  knock_restitution:   {value: 0.5, unit: "1", prov: assumed, src: "Coefficient of restitution if impulse pin knocks the fork horn (overbanking)"}
+  wheel_thickness:     {value: 0.12, unit: mm, prov: assumed, src: "Escape wheel plate thickness"}
+  wheel_density:       {value: 7850.0, unit: kg/m^3, prov: assumed, src: "Steel escape wheel"}
+  wheel_open_fraction: {value: 0.55, unit: "1", prov: assumed, src: "Fraction of wheel disc removed by crossings/teeth gaps"}
+  fork_density:        {value: 7850.0, unit: kg/m^3, prov: assumed, src: "Steel pallet fork"}
+  fork_thickness:      {value: 0.15, unit: mm, prov: assumed, src: "Fork body thickness"}
+  fork_width:          {value: 0.35, unit: mm, prov: assumed, src: "Lever width"}
+
+train_friction:
+  mesh_friction_coeff: {value: 0.15, unit: "1", prov: assumed, src: "Dry/lightly lubricated brass wheel on steel pinion", range: [0.08, 0.25]}
+  mesh_loss_factor:    {value: 0.50, unit: "1", prov: assumed, src: "Fraction of classic mu*pi*(1/z1+1/z2) loss for recess-dominated cycloidal action", range: [0.3, 1.0]}
+  pivot_friction_coeff: {value: 0.12, unit: "1", prov: assumed, src: "Oiled steel pivot in ruby/brass", range: [0.08, 0.18]}
+  pivot_radius_barrel: {value: 0.50, unit: mm, prov: assumed, src: "Barrel arbor bearing"}
+  pivot_radius_center: {value: 0.15, unit: mm, prov: assumed, src: "Centre arbor"}
+  pivot_radius_third:  {value: 0.075, unit: mm, prov: assumed, src: "Typical third-wheel pivot"}
+  pivot_radius_fourth: {value: 0.065, unit: mm, prov: assumed, src: "Typical fourth-wheel pivot"}
+  pivot_radius_escape: {value: 0.050, unit: mm, prov: assumed, src: "Typical escape pivot"}
+  seconds_brake_torque: {value: 5.0e-8, unit: N*m, prov: assumed, src: "Seconds pinion friction spring 903-690 (parts list) drag on centre second pinion", range: [1.0e-8, 1.5e-7]}
+  motion_works_drag:   {value: 2.0e-7, unit: N*m, prov: assumed, src: "Drag of hour/minute works on centre arbor"}
+  wheel_density:       {value: 8470.0, unit: kg/m^3, prov: assumed, src: "Brass train wheels"}
+  wheel_thickness:     {value: 0.15, unit: mm, prov: assumed, src: "Train wheel plate thickness"}
+  wheel_open_fraction: {value: 0.55, unit: "1", prov: assumed, src: "Material removed by crossings"}
+
+# -------------------------------------------------------------------------------------
+positions:   # standard test positions (gravity direction in the dial-view plane for verticals)
+  # horizontal positions use end-stone (axial) friction; vertical positions radial friction + unpoise
+  DU: {label: "Dial up",     horizontal: 1, gravity_angle_deg: 0}
+  DD: {label: "Dial down",   horizontal: 1, gravity_angle_deg: 0}
+  CU: {label: "Crown up",    horizontal: 0, gravity_angle_deg: 180}
+  CD: {label: "Crown down",  horizontal: 0, gravity_angle_deg: 0}
+  CL: {label: "Crown left",  horizontal: 0, gravity_angle_deg: 90}
+  CR: {label: "Crown right", horizontal: 0, gravity_angle_deg: 270}
+
+# -------------------------------------------------------------------------------------
+simulation:
+  dt_free:             {value: 1.0e-4, unit: s, prov: assumed, src: "RK4 step during free oscillation"}
+  dt_contact:          {value: 5.0e-6, unit: s, prov: assumed, src: "RK4 step during escapement contact phases"}
+  event_tolerance:     {value: 1.0e-9, unit: s, prov: assumed, src: "Event localisation tolerance (bisection)"}
+  settle_periods:      {value: 400, unit: "1", prov: assumed, src: "Periods simulated to reach steady amplitude (tau = 2Q/w0 ~ 20 s)"}
+  measure_periods:     {value: 60, unit: "1", prov: assumed, src: "Periods averaged for rate/amplitude measurement"}
+  torque_grid_points:  {value: 24, unit: "1", prov: assumed, src: "Mainspring states for the quasi-static power-reserve map"}
+  gravity:             {value: 9.80665, unit: m/s^2, prov: sourced, src: "Standard gravity"}
+
+# -------------------------------------------------------------------------------------
+cad:   # axial stack (z, mm): z=0 dial-side face of main plate, + toward dial, - toward caseback.
+       # All ASSUMED (no drawing available) but constrained: total = sourced movement height 5.67 mm,
+       # hand clearance >= 0.45 mm (sourced), no axial overlap of parts that overlap in plan (tested).
+  plate:            {value: [-1.10, 0.00], unit: mm, prov: assumed, src: "Main plate"}
+  center_wheel:     {value: [-1.42, -1.27], unit: mm, prov: assumed, src: "Centre wheel runs between plate and barrel"}
+  center_pinion:    {value: [-1.85, -1.55], unit: mm, prov: assumed, src: "Meshes barrel teeth band"}
+  barrel:           {value: [-3.30, -1.55], unit: mm, prov: assumed, src: "Drum incl. lid (mainspring height 1.0 mm inside)"}
+  barrel_teeth:     {value: [-1.85, -1.55], unit: mm, prov: assumed, src: "Teeth band at dial side of drum"}
+  third_pinion:     {value: [-1.47, -1.22], unit: mm, prov: assumed, src: "Meshes centre wheel"}
+  third_wheel:      {value: [-3.55, -3.42], unit: mm, prov: assumed, src: "Above barrel; meshes 4th and centre-second pinions"}
+  fourth_pinion:    {value: [-3.58, -3.39], unit: mm, prov: assumed, src: "Must overlap third-wheel band (mesh)"}
+  seconds_pinion:   {value: [-3.58, -3.39], unit: mm, prov: assumed, src: "Centre second pinion"}
+  fourth_wheel:     {value: [-2.30, -2.15], unit: mm, prov: assumed, src: "Inside barrel height range; plan clearance to barrel verified"}
+  escape_pinion:    {value: [-2.35, -2.10], unit: mm, prov: assumed, src: "Must overlap fourth-wheel band (mesh)"}
+  escape_wheel:     {value: [-2.95, -2.83], unit: mm, prov: assumed, src: "Level of pallet stones and impulse roller"}
+  pallet_fork:      {value: [-2.95, -2.80], unit: mm, prov: assumed, src: "Fork body; stones span the escape-wheel band"}
+  roller:           {value: [-2.98, -2.78], unit: mm, prov: assumed, src: "Impulse roller at fork level"}
+  pallet_bridge:    {value: [-3.45, -3.12], unit: mm, prov: assumed, src: "Between fork and balance rim"}
+  balance_rim:      {value: [-4.02, -3.62], unit: mm, prov: assumed, src: "Rim height = balance.rim_thickness"}
+  hairspring:       {value: [-4.18, -4.08], unit: mm, prov: assumed, src: "Height = hairspring.height"}
+  train_bridge:     {value: [-4.40, -3.80], unit: mm, prov: assumed, src: "Barrel and train wheel bridge 701-F52"}
+  balance_cock:     {value: [-4.80, -4.30], unit: mm, prov: assumed, src: "Balance bridge 350-020"}
+  ratchet:          {value: [-4.66, -4.44], unit: mm, prov: assumed, src: "Ratchet + crown wheel + reduction pinion level (L1)"}
+  auto_l2:          {value: [-4.80, -4.68], unit: mm, prov: assumed, src: "Reduction wheel + sliding-wheel pinion level"}
+  auto_l3:          {value: [-4.95, -4.82], unit: mm, prov: assumed, src: "Reversing wheel + rotor pinion level"}
+  rotor:            {value: [-5.67, -4.97], unit: mm, prov: assumed, src: "Oscillating weight; bottom of stack = movement height"}
+  motion_works:     {value: [0.05, 0.70], unit: mm, prov: assumed, src: "Dial-side recess"}
+  dial:             {value: [0.85, 1.20], unit: mm, prov: assumed, src: "Skeleton dial"}
+  hour_hand_z:      {value: 1.35, unit: mm, prov: assumed, src: "Above dial + indices"}
+  minute_hand_z:    {value: 1.70, unit: mm, prov: assumed, src: "Hand-to-hand clearance >= 0.2 mm"}
+  seconds_hand_z:   {value: 2.05, unit: mm, prov: assumed, src: "Must stay >= 0.45 mm below crystal (sourced clearance)"}

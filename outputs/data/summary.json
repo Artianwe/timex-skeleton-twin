@@ -1,0 +1,718 @@
+{
+ "positional": {
+  "full": [
+   {
+    "position": "DU",
+    "label": "Dial up",
+    "amplitude_deg": 270.7986389398085,
+    "rate_s_per_day": -4.5866967644162315,
+    "beat_error_ms": 0.5891332007987027,
+    "running": true,
+    "power_uW": 0.6004978890790313
+   },
+   {
+    "position": "DD",
+    "label": "Dial down",
+    "amplitude_deg": 270.7986389398085,
+    "rate_s_per_day": -4.5866967644162315,
+    "beat_error_ms": 0.5891332007987027,
+    "running": true,
+    "power_uW": 0.6004978890790313
+   },
+   {
+    "position": "CU",
+    "label": "Crown up",
+    "amplitude_deg": 227.1237149853796,
+    "rate_s_per_day": -4.239266342317194,
+    "beat_error_ms": 0.7269709777709688,
+    "running": true,
+    "power_uW": 0.6004979013125834
+   },
+   {
+    "position": "CD",
+    "label": "Crown down",
+    "amplitude_deg": 227.09896630236778,
+    "rate_s_per_day": -9.332685881993186,
+    "beat_error_ms": 0.6792915344117911,
+    "running": true,
+    "power_uW": 0.60049790953196
+   },
+   {
+    "position": "CL",
+    "label": "Crown left",
+    "amplitude_deg": 227.103514811257,
+    "rate_s_per_day": -8.259179881871148,
+    "beat_error_ms": 0.7441604614136788,
+    "running": true,
+    "power_uW": 0.6004978907466318
+   },
+   {
+    "position": "CR",
+    "label": "Crown right",
+    "amplitude_deg": 227.11916671270657,
+    "rate_s_per_day": -5.318566858717233,
+    "beat_error_ms": 0.6621560668822885,
+    "running": true,
+    "power_uW": 0.6004978640484676
+   }
+  ],
+  "after_24h": [
+   {
+    "position": "DU",
+    "label": "Dial up",
+    "amplitude_deg": 229.68489011263128,
+    "rate_s_per_day": -5.463739660167732,
+    "beat_error_ms": 0.6952098004453233,
+    "running": true,
+    "power_uW": 0.4446925174801161
+   },
+   {
+    "position": "DD",
+    "label": "Dial down",
+    "amplitude_deg": 229.68489011263128,
+    "rate_s_per_day": -5.463739660167732,
+    "beat_error_ms": 0.6952098004453233,
+    "running": true,
+    "power_uW": 0.4446925174801161
+   },
+   {
+    "position": "CU",
+    "label": "Crown up",
+    "amplitude_deg": 187.4533416114354,
+    "rate_s_per_day": -22.32870163970553,
+    "beat_error_ms": 0.8819132653464512,
+    "running": true,
+    "power_uW": 0.44469252884014665
+   },
+   {
+    "position": "CD",
+    "label": "Crown down",
+    "amplitude_deg": 187.40453136027358,
+    "rate_s_per_day": 5.172376039168114,
+    "beat_error_ms": 0.8246338706040662,
+    "running": true,
+    "power_uW": 0.4446925292670575
+   },
+   {
+    "position": "CL",
+    "label": "Crown left",
+    "amplitude_deg": 187.41469122127316,
+    "rate_s_per_day": -0.6331107924221868,
+    "beat_error_ms": 0.9023305511338259,
+    "running": true,
+    "power_uW": 0.44469252093892125
+   },
+   {
+    "position": "CR",
+    "label": "Crown right",
+    "amplitude_deg": 187.44332431285753,
+    "rate_s_per_day": -16.549734292064855,
+    "beat_error_ms": 0.8041868459628676,
+    "running": true,
+    "power_uW": 0.44469251745275673
+   }
+  ],
+  "posture_difference_full": 4.745989117576954,
+  "posture_difference_24h": 21.72211033123297
+ },
+ "energy_flow_full": {
+  "P_barrel": 7.728782902415092e-07,
+  "P_escape_wheel": 6.004588620269193e-07,
+  "P_escape_wheel_kinematic": 6.081203933982473e-07,
+  "train_losses": [
+   {
+    "stage": "barrel drum on arbor",
+    "P_loss": 9.026315798487367e-09
+   },
+   {
+    "stage": "mesh barrel/centre pinion",
+    "P_loss": 2.0397549886392186e-08
+   },
+   {
+    "stage": "centre arbor pivots",
+    "P_loss": 2.360236664766276e-08
+   },
+   {
+    "stage": "mesh centre/third pinion",
+    "P_loss": 1.9081253841735737e-08
+   },
+   {
+    "stage": "third arbor pivots",
+    "P_loss": 2.1159963590486398e-08
+   },
+   {
+    "stage": "mesh third/fourth pinion",
+    "P_loss": 1.8148013601804606e-08
+   },
+   {
+    "stage": "fourth arbor pivots",
+    "P_loss": 1.2583292839598276e-08
+   },
+   {
+    "stage": "mesh fourth/escape pinion",
+    "P_loss": 2.3661336878100545e-08
+   },
+   {
+    "stage": "escape arbor pivots",
+    "P_loss": 1.7097803758994022e-08
+   }
+  ],
+  "escapement_losses": {
+   "unlocking_friction": 1.5277842390036956e-08,
+   "impulse_plane_friction": 1.1305903462911084e-07,
+   "impulse_pin_friction": 1.0600925360211737e-08,
+   "impact_drop_lock": 1.0157969346865054e-07,
+   "impact_wheel_catch_up": 4.726611631634865e-08,
+   "impact_pin_entry": 6.8380253704303615e-09,
+   "impact_fork_banking": 6.729156723078459e-09,
+   "impact_knocking": 0.0,
+   "impact_failed_unlock": 0.0
+  },
+  "balance_losses": {
+   "balance_air": 1.329924651794358e-07,
+   "balance_hairspring_internal": 3.143458267877574e-08,
+   "balance_pivot_oil": 7.684009099256292e-08,
+   "balance_pivot_coulomb": 5.784094024017036e-08
+  },
+  "P_balance": 2.991080790909448e-07,
+  "P_escapement_loss": 3.0135079425786754e-07,
+  "eta_train": 0.7868255598280832,
+  "eta_escapement": 0.49813250833082956,
+  "eta_total": 0.3870054093478023,
+  "closure_W": -1.4159415024430553e-19
+ },
+ "error_decomposition": {
+  "DU": {
+   "total": -4.5866967644162315,
+   "amplitude_deg": 270.7986389398085,
+   "gravity_unpoise": 0.0,
+   "beat_offset_asymmetry": -5.181973570245191e-05,
+   "escapement_and_damping": -4.586644944680529,
+   "regulator_offset": 0.0
+  },
+  "CD": {
+   "total": -9.332685881993186,
+   "amplitude_deg": 227.09896630236778,
+   "gravity_unpoise": -2.547188321661764,
+   "beat_offset_asymmetry": -0.020523636115399313,
+   "escapement_and_damping": -6.764973924216022,
+   "regulator_offset": 0.0
+  },
+  "CL": {
+   "total": -8.259179881871148,
+   "amplitude_deg": 227.103514811257,
+   "gravity_unpoise": -1.4736823215397266,
+   "beat_offset_asymmetry": -0.020523636115399313,
+   "escapement_and_damping": -6.764973924216022,
+   "regulator_offset": 0.0
+  }
+ },
+ "events": [
+  {
+   "event": "t_entry",
+   "description": "Impulse pin enters fork slot - UNLOCKING starts (1st timegrapher sound)",
+   "t_ms": 0.0,
+   "balance_deg": -22.999996875088385,
+   "balance_rad_s": 88.46711710982343
+  },
+  {
+   "event": "t_unlock",
+   "description": "Unlocking complete - tooth leaves locking face, wheel released",
+   "t_ms": 1.6525103759874593,
+   "balance_deg": -14.618113640486369,
+   "balance_rad_s": 88.57101605623987
+  },
+  {
+   "event": "t_catch",
+   "description": "Wheel catches impulse plane - IMPULSE contact begins",
+   "t_ms": 3.049927368184102,
+   "balance_deg": -7.522797833455904,
+   "balance_rad_s": 88.74051466212943
+  },
+  {
+   "event": "t_letoff",
+   "description": "Let-off - tooth leaves impulse plane, DROP begins",
+   "t_ms": 7.978980712942896,
+   "balance_deg": 17.618115198922606,
+   "balance_rad_s": 89.17643573552645
+  },
+  {
+   "event": "t_lock",
+   "description": "Tooth lands on opposite pallet - LOCK (main 'tick')",
+   "t_ms": 8.598938598689099,
+   "balance_deg": 20.78441664936085,
+   "balance_rad_s": 89.09942669725508
+  },
+  {
+   "event": "t_exit",
+   "description": "Pin leaves fork, fork rests on banking - FREE (supplementary) arc",
+   "t_ms": 9.62144470221138,
+   "balance_deg": 26.000000064794943,
+   "balance_rad_s": 88.94607333911374
+  }
+ ],
+ "kinematics": {
+  "speeds": [
+   {
+    "arbor": "centre",
+    "omega_rad_s": -0.0017453292519943296,
+    "rpm": -0.016666666666666666,
+    "rev_per_hour": 1.0,
+    "period_s": 3600.0,
+    "direction": "CW (dial view)"
+   },
+   {
+    "arbor": "barrel",
+    "omega_rad_s": 0.00023271056693257729,
+    "rpm": 0.0022222222222222222,
+    "rev_per_hour": 0.13333333333333333,
+    "period_s": 26999.999999999996,
+    "direction": "CCW (dial view)"
+   },
+   {
+    "arbor": "third",
+    "omega_rad_s": 0.013962634015954637,
+    "rpm": 0.13333333333333333,
+    "rev_per_hour": 8.0,
+    "period_s": 450.0,
+    "direction": "CCW (dial view)"
+   },
+   {
+    "arbor": "fourth",
+    "omega_rad_s": -0.10471975511965978,
+    "rpm": -1.0000000000000002,
+    "rev_per_hour": 60.00000000000001,
+    "period_s": 59.99999999999999,
+    "direction": "CW (dial view)"
+   },
+   {
+    "arbor": "seconds",
+    "omega_rad_s": -0.10471975511965978,
+    "rpm": -1.0000000000000002,
+    "rev_per_hour": 60.00000000000001,
+    "period_s": 59.99999999999999,
+    "direction": "CW (dial view)"
+   },
+   {
+    "arbor": "escape",
+    "omega_rad_s": 1.2566370614359172,
+    "rpm": 12.0,
+    "rev_per_hour": 720.0,
+    "period_s": 5.0,
+    "direction": "CCW (dial view)"
+   },
+   {
+    "arbor": "minute_wheel",
+    "omega_rad_s": 0.0005817764173314432,
+    "rpm": 0.005555555555555556,
+    "rev_per_hour": 0.3333333333333333,
+    "period_s": 10800.0,
+    "direction": "CCW (dial view)"
+   },
+   {
+    "arbor": "hour",
+    "omega_rad_s": -0.0001454441043328608,
+    "rpm": -0.001388888888888889,
+    "rev_per_hour": 0.08333333333333333,
+    "period_s": 43200.0,
+    "direction": "CW (dial view)"
+   }
+  ],
+  "meshes": [
+   {
+    "mesh": "barrel->centre",
+    "z_driver": 75,
+    "z_driven": 10,
+    "module_mm": 0.137,
+    "centre_distance_mm": 5.822500000000002,
+    "speed_ratio": -7.5
+   },
+   {
+    "mesh": "centre->third",
+    "z_driver": 80,
+    "z_driven": 10,
+    "module_mm": 0.09,
+    "centre_distance_mm": 4.05,
+    "speed_ratio": -8.0
+   },
+   {
+    "mesh": "third->fourth",
+    "z_driver": 75,
+    "z_driven": 10,
+    "module_mm": 0.09529411764705882,
+    "centre_distance_mm": 4.05,
+    "speed_ratio": -7.5
+   },
+   {
+    "mesh": "third->seconds",
+    "z_driver": 75,
+    "z_driven": 10,
+    "module_mm": 0.09529411764705882,
+    "centre_distance_mm": 4.05,
+    "speed_ratio": -7.5
+   },
+   {
+    "mesh": "fourth->escape",
+    "z_driver": 84,
+    "z_driven": 7,
+    "module_mm": 0.07,
+    "centre_distance_mm": 3.1850000000000005,
+    "speed_ratio": -12.0
+   },
+   {
+    "mesh": "cannon->minute_wheel",
+    "z_driver": 10,
+    "z_driven": 30,
+    "module_mm": 0.075,
+    "centre_distance_mm": 1.4999999999999998,
+    "speed_ratio": -0.3333333333333333
+   },
+   {
+    "mesh": "minute_pinion->hour",
+    "z_driver": 8,
+    "z_driven": 32,
+    "module_mm": 0.075,
+    "centre_distance_mm": 1.4999999999999998,
+    "speed_ratio": -0.25
+   }
+  ],
+  "hands": {
+   "seconds": {
+    "arbor": "seconds",
+    "period_s": 59.99999999999999,
+    "omega": -0.10471975511965978
+   },
+   "minute": {
+    "arbor": "centre",
+    "period_s": 3600.0,
+    "omega": -0.0017453292519943296
+   },
+   "hour": {
+    "arbor": "hour",
+    "period_s": 43200.0,
+    "omega": -0.0001454441043328608
+   }
+  }
+ },
+ "validation": [
+  {
+   "id": "K1",
+   "category": "kinematics",
+   "check": "Seconds-hand period",
+   "equation": "T = 2\u03c0/|\u03c9_sec|, \u03c9 from tooth-count chain",
+   "expected": "60 s",
+   "value": "60 s",
+   "tolerance": "1e-9 s",
+   "status": "PASS",
+   "basis": "watchmaking definition"
+  },
+  {
+   "id": "K2",
+   "category": "kinematics",
+   "check": "Minute-hand (centre wheel) period",
+   "equation": "T = 2\u03c0/|\u03c9_c|",
+   "expected": "3600 s",
+   "value": "3600 s",
+   "tolerance": "1e-6 s",
+   "status": "PASS",
+   "basis": "watchmaking definition"
+  },
+  {
+   "id": "K3",
+   "category": "kinematics",
+   "check": "Hour-hand period",
+   "equation": "T = 2\u03c0/|\u03c9_h|",
+   "expected": "43200 s",
+   "value": "43200 s",
+   "tolerance": "1e-5 s",
+   "status": "PASS",
+   "basis": "watchmaking definition"
+  },
+  {
+   "id": "K4",
+   "category": "kinematics",
+   "check": "Escape-wheel speed",
+   "equation": "\u03c9_e = 2\u03c0 f / Z_e",
+   "expected": "12 rpm",
+   "value": "12 rpm",
+   "tolerance": "exact",
+   "status": "PASS",
+   "basis": "21,600 vph (measured) with 15 teeth"
+  },
+  {
+   "id": "K5",
+   "category": "kinematics",
+   "check": "Hands turn clockwise",
+   "equation": "sign(\u03c9) < 0 about +z",
+   "expected": "all CW",
+   "value": "seconds:CW, centre:CW, hour:CW",
+   "tolerance": "",
+   "status": "PASS",
+   "basis": "external meshes reverse sense"
+  },
+  {
+   "id": "O1",
+   "category": "oscillator",
+   "check": "Free balance period",
+   "equation": "T = 2\u03c0 \u221a(I/k)",
+   "expected": "1/3 s (3 Hz)",
+   "value": "0.333333333 s",
+   "tolerance": "1e-9 s",
+   "status": "PASS",
+   "basis": "sourced frequency; k sized from I"
+  },
+  {
+   "id": "O2",
+   "category": "oscillator",
+   "check": "Simulated beat rate (dial up, full wind)",
+   "equation": "beats/h = 3600 / mean beat interval",
+   "expected": "21,600 vph (\u00b10.1 %)",
+   "value": "21599.8 vph",
+   "tolerance": "0.1 %",
+   "status": "PASS",
+   "basis": "owner measurement + Miyota spec"
+  },
+  {
+   "id": "E1",
+   "category": "energy",
+   "check": "Energy ledger closure (40 periods)",
+   "equation": "W_escape = \u03a3 losses + \u0394E_mech",
+   "expected": "0",
+   "value": "2.26e-13 (relative)",
+   "tolerance": "1e-9",
+   "status": "PASS",
+   "basis": "conservation of energy"
+  },
+  {
+   "id": "E2",
+   "category": "energy",
+   "check": "Torque transmission barrel \u2192 escape wheel",
+   "equation": "P_e = T_e \u03c9_e, T_e = T_b \u03a0\u03b7 / i \u2212 drags",
+   "expected": "0.6081 \u00b5W",
+   "value": "0.6005 \u00b5W",
+   "tolerance": "2 %",
+   "status": "PASS",
+   "basis": "kinematic train model vs measured work on the wheel (difference = recoil back-drive)"
+  },
+  {
+   "id": "X1",
+   "category": "escapement",
+   "check": "Per-beat wheel advance",
+   "equation": "\u2212\u03c8_rec + \u03c8_I + \u03c8_D = \u03c0 / Z",
+   "expected": "12\u00b0",
+   "value": "12\u00b0",
+   "tolerance": "exact",
+   "status": "PASS",
+   "basis": "kinematic closure of the escapement"
+  },
+  {
+   "id": "X2",
+   "category": "escapement",
+   "check": "Balance lift angle (pin entry \u2192 exit)",
+   "equation": "\u03bb = \u03b8_exit \u2212 \u03b8_entry",
+   "expected": "49\u00b0",
+   "value": "49.0000\u00b0",
+   "tolerance": "0.001\u00b0",
+   "status": "PASS",
+   "basis": "Miyota 82S spec sheet"
+  },
+  {
+   "id": "X3",
+   "category": "escapement",
+   "check": "Draw exceeds friction angle (fork pulled to banking)",
+   "equation": "\u03b4 > atan \u03bc",
+   "expected": "> 8.53\u00b0",
+   "value": "12.00\u00b0",
+   "tolerance": "",
+   "status": "PASS",
+   "basis": "lever-escapement safety rule"
+  },
+  {
+   "id": "T1",
+   "category": "timekeeping",
+   "check": "Daily rate, dial up, full wind",
+   "equation": "rate = 86400 (f/f\u2080 \u2212 1)",
+   "expected": "\u221220 \u2026 +40 s/day",
+   "value": "-4.59 s/day",
+   "tolerance": "spec band",
+   "status": "PASS",
+   "basis": "Miyota 82S0 spec (regulator at neutral)"
+  },
+  {
+   "id": "T2",
+   "category": "timekeeping",
+   "check": "Posture difference (DU, CD, CL, CR)",
+   "equation": "max \u2212 min rate",
+   "expected": "< 50 s/day",
+   "value": "4.75 s/day",
+   "tolerance": "spec",
+   "status": "PASS",
+   "basis": "Miyota 82S0 spec"
+  },
+  {
+   "id": "T3",
+   "category": "timekeeping",
+   "check": "Amplitude, dial up, full wind",
+   "equation": "limit cycle of the hybrid model",
+   "expected": "250\u2013310\u00b0 (typical healthy watch)",
+   "value": "270.8\u00b0",
+   "tolerance": "band",
+   "status": "PASS",
+   "basis": "general horology - not caliber-specific"
+  },
+  {
+   "id": "T4",
+   "category": "timekeeping",
+   "check": "Horizontal-to-vertical amplitude drop",
+   "equation": "A_DU \u2212 mean(A_vertical)",
+   "expected": "20\u201360\u00b0 (typical)",
+   "value": "43.7\u00b0",
+   "tolerance": "band",
+   "status": "PASS",
+   "basis": "general horology"
+  },
+  {
+   "id": "T5",
+   "category": "timekeeping",
+   "check": "Out-of-poise error vs averaging theory (12 amplitudes)",
+   "equation": "\u0394rate = 86400 (U cos \u03b3\u2032 / k) J\u2081(A)/A",
+   "expected": "theory",
+   "value": "max |\u0394| = 0.025 s/day",
+   "tolerance": "0.1 s/day",
+   "status": "PASS",
+   "basis": "Krylov\u2013Bogoliubov averaging (independent of the simulator)"
+  },
+  {
+   "id": "T6",
+   "category": "timekeeping",
+   "check": "Virtual timegrapher amplitude (49\u00b0 lift, entry\u2192lock)",
+   "equation": "A = \u03bb / (2 sin(\u03c0 t_lift / T))",
+   "expected": "true 270.8\u00b0",
+   "value": "302.6\u00b0",
+   "tolerance": "",
+   "status": "INFO",
+   "basis": "shows the bias of timegrapher amplitude when the lock sound is used as end of lift"
+  },
+  {
+   "id": "PR1",
+   "category": "power reserve",
+   "check": "Predicted reserve, dial up",
+   "equation": "t = (n_dev \u2212 n_stop) \u00b7 2\u03c0 / \u03c9_barrel",
+   "expected": "42 h (Miyota) / 40 h (Timex)",
+   "value": "42.00 h",
+   "tolerance": "",
+   "status": "INFO",
+   "basis": "CALIBRATED via mainspring development factor (blind: 47.7 h)"
+  },
+  {
+   "id": "PR2",
+   "category": "power reserve",
+   "check": "Reserve in vertical positions (not calibrated)",
+   "equation": "same, vertical friction",
+   "expected": "\u2264 dial-up reserve",
+   "value": "41.80\u201341.81 h",
+   "tolerance": "",
+   "status": "PASS",
+   "basis": "physics: more friction stops earlier"
+  },
+  {
+   "id": "PR3",
+   "category": "power reserve",
+   "check": "Reserve: multi-time-scale model vs full event-by-event integration",
+   "equation": "|t_qs \u2212 t_brute| / t_brute",
+   "expected": "< 1 %",
+   "value": "47.71 h vs 47.78 h (0.15 %)",
+   "tolerance": "1 %",
+   "status": "PASS",
+   "basis": "independent brute-force run (~10\u2076 escapement events, blind mainspring)"
+  },
+  {
+   "id": "PR4",
+   "category": "power reserve",
+   "check": "Amplitude & rate: quasi-static vs brute force (first 95 % of reserve)",
+   "equation": "max |A_b \u2212 A_qs|, max |r_b \u2212 r_qs|",
+   "expected": "< 1\u00b0, < 0.1 s/day",
+   "value": "0.814\u00b0, 0.047 s/day",
+   "tolerance": "1\u00b0, 0.1 s/day",
+   "status": "PASS",
+   "basis": "time-scale separation holds until the final minutes of run-down"
+  },
+  {
+   "id": "G1",
+   "category": "geometry",
+   "check": "3-D interference between parts (reference pose)",
+   "equation": "z-band overlap \u2227 plan overlap",
+   "expected": "0",
+   "value": "0",
+   "tolerance": "",
+   "status": "PASS",
+   "basis": "parametric CAD"
+  },
+  {
+   "id": "G2",
+   "category": "geometry",
+   "check": "Minimum layout clearance",
+   "equation": "distance \u2212 radii",
+   "expected": "\u2265 0.15 mm",
+   "value": "0.175 mm",
+   "tolerance": "",
+   "status": "PASS",
+   "basis": "layout synthesis"
+  },
+  {
+   "id": "G3",
+   "category": "geometry",
+   "check": "Movement height of CAD stack",
+   "equation": "z_plate \u2212 z_rotor",
+   "expected": "5.67 mm",
+   "value": "5.67 mm",
+   "tolerance": "exact",
+   "status": "PASS",
+   "basis": "Miyota spec"
+  },
+  {
+   "id": "G4",
+   "category": "geometry",
+   "check": "Crown turns from let-down to full wind",
+   "equation": "N = n_dev z_ratchet / z_wp",
+   "expected": "\u2264 40",
+   "value": "26.3",
+   "tolerance": "",
+   "status": "PASS",
+   "basis": "Miyota spec measurement condition"
+  },
+  {
+   "id": "G5",
+   "category": "geometry",
+   "check": "Hairspring length plausibility",
+   "equation": "L = E h t\u00b3/(12 k); N = L / (2\u03c0 r_mean)",
+   "expected": "10\u201316 turns",
+   "value": "13.4 turns",
+   "tolerance": "",
+   "status": "PASS",
+   "basis": "typical flat hairspring"
+  },
+  {
+   "id": "G6",
+   "category": "geometry",
+   "check": "Coaxial motion-works constraint",
+   "equation": "z_cp + Z_mw = z_mp + Z_hw",
+   "expected": "equal",
+   "value": "40 / 40",
+   "tolerance": "",
+   "status": "PASS",
+   "basis": "single module, two coaxial meshes"
+  },
+  {
+   "id": "S1",
+   "category": "software",
+   "check": "Automated test-suite",
+   "equation": "pytest",
+   "expected": "all pass",
+   "value": "68 passed in 11.72s",
+   "tolerance": "",
+   "status": "PASS",
+   "basis": "tests/"
+  }
+ ]
+}

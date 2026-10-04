@@ -1,0 +1,36 @@
+estimates:
+  balance_diameter_mm:
+    value: 9.54
+    spread: 0.33
+  balance_centre_radius_mm:
+    value: 7.56
+    min: 5.63
+    max: 8.62
+  balance_centre_angle_deg:
+    value: 222.9
+    min: 209.1
+    max: 239.8
+  note: Scaled-orthographic model; depth differences between case silhouette and movement
+    (~3-6 mm) add ~3% scale uncertainty.
+caseback:
+  px_per_mm: 42.09
+  case_ellipticity: 0.9935
+  balance_diameter_mm: 9.52
+  balance_centre:
+    case_centre:
+      radius_mm: 7.24
+      angle_deg: 211.4
+    rotor_axis:
+      radius_mm: 5.63
+      angle_deg: 209.1
+dial:
+  px_per_mm: 30.45
+  case_ellipticity: 0.991
+  balance_diameter_mm: 9.57
+  balance_centre:
+    case_centre:
+      radius_mm: 8.62
+      angle_deg: 239.8
+    hands_pivot:
+      radius_mm: 7.88
+      angle_deg: 234.3

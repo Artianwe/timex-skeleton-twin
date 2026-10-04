@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "timex-skeleton-twin"
+version = "1.0.0"
+description = "Physics-based digital twin of a Timex TWEG16716 skeleton automatic (Miyota 82S0): parametric CAD, kinematics, hybrid escapement dynamics, energy flow, timekeeping and power reserve."
+authors = [{ name = "Anwesh Ajitabh Dash" }]
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "scipy>=1.11", "numba>=0.59", "pyyaml>=6.0", "matplotlib>=3.8", "shapely>=2.0"]
+
+[project.optional-dependencies]
+cad = ["cadquery>=2.4", "trimesh>=4.0", "mapbox-earcut>=1.0"]
+dev = ["pytest>=8.0", "playwright>=1.40"]
+
+[project.scripts]
+twin = "twin.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

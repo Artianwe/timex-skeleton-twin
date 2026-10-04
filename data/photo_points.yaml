@@ -1,0 +1,35 @@
+# Hand-picked pixel coordinates from the owner's photographs (full-resolution 3456 x 4608 JPEGs).
+# Picked on zoomed, gridded crops; estimated picking uncertainty is +/- 8 px for sharp edges and
+# +/- 15 px for blurred features. Image coordinates: x to the right, y DOWN.
+#
+# These points feed tools/photogrammetry.py, which converts them into the "measured" entries of
+# config/watch.yaml (balance diameter, balance position). Re-pick from sharper photos to tighten.
+
+caseback:            # data/photos/caseback.jpg  (crown on the RIGHT => 12 o'clock at the BOTTOM)
+  file: data/photos/caseback.jpg
+  crown_side: right
+  case_edge:         # outermost silhouette of the 44 mm case (engraved "44 MM CASE")
+    left:   [640, 2450]
+    right:  [2480, 2450]
+    top:    [1550, 1585]
+    bottom: [1500, 3437]
+  rotor_axis: [1507, 2467]          # hub of the oscillating weight (movement centre)
+  balance_centre: [1300, 2352]      # cap jewel of the balance (Parashock setting)
+  balance_rim:                      # outer edge of the gold-coloured balance rim
+    - [1113, 2330]
+    - [1497, 2320]
+    - [1320, 2140]
+
+dial:                # data/photos/dial_side.jpg  (crown on the RIGHT, 12 o'clock at the TOP)
+  file: data/photos/dial_side.jpg
+  crown_side: right
+  case_edge:
+    left:   [1132, 2600]
+    right:  [2460, 2600]
+    top:    [1800, 1880]
+    bottom: [1800, 3220]
+  hands_pivot: [1804, 2582]         # common axis of hour/minute/seconds hands
+  balance_centre: [1664, 2777]      # dial-side balance jewel (gold chaton, ruby)
+  balance_rim:
+    - [1623, 2636]                  # upper arc
+    - [1532, 2836]                  # lower-left arc

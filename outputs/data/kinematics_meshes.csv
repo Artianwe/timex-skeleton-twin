@@ -1,0 +1,8 @@
+mesh,z_driver,z_driven,module_mm,centre_distance_mm,speed_ratio
+barrel->centre,75,10,0.137,5.822500000000002,-7.5
+centre->third,80,10,0.09,4.05,-8.0
+third->fourth,75,10,0.09529411764705882,4.05,-7.5
+third->seconds,75,10,0.09529411764705882,4.05,-7.5
+fourth->escape,84,7,0.07,3.1850000000000005,-12.0
+cannon->minute_wheel,10,30,0.075,1.4999999999999998,-0.3333333333333333
+minute_pinion->hour,8,32,0.075,1.4999999999999998,-0.25

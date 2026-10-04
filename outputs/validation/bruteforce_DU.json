@@ -1,0 +1,9 @@
+{
+  "position": "DU",
+  "reserve_bruteforce_h": 47.783943389915244,
+  "reserve_quasistatic_h": 47.712733938519264,
+  "reserve_rel_diff": -0.001490238066266596,
+  "amplitude_max_abs_diff_deg": 17.55853772969506,
+  "rate_max_abs_diff_s_day": 19.091972834225196,
+  "wall_time_s": 3559.2382707595825
+}

@@ -1,0 +1,8 @@
+{
+  "target_h": 42.0,
+  "blind_development_factor": 0.85,
+  "blind_reserve_h": 47.71273393851927,
+  "blind_error_pct": 13.601747472664933,
+  "calibrated_development_factor": 0.7478,
+  "calibrated_reserve_h": 42.00173463498782
+}

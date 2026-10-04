@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.nbi
+*.nbc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# large / regenerable outputs
+outputs/cad/movement_82S0.step
+outputs/web/screens/
+outputs/analysis/*.log
+outputs/validation/*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

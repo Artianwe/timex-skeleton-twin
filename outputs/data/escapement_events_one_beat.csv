@@ -1,0 +1,7 @@
+event,description,t_ms,balance_deg,balance_rad_s
+t_entry,Impulse pin enters fork slot - UNLOCKING starts (1st timegrapher sound),0.0,-22.999996875088385,88.46711710982343
+t_unlock,"Unlocking complete - tooth leaves locking face, wheel released",1.6525103759874593,-14.618113640486369,88.57101605623987
+t_catch,Wheel catches impulse plane - IMPULSE contact begins,3.049927368184102,-7.522797833455904,88.74051466212943
+t_letoff,"Let-off - tooth leaves impulse plane, DROP begins",7.978980712942896,17.618115198922606,89.17643573552645
+t_lock,Tooth lands on opposite pallet - LOCK (main 'tick'),8.598938598689099,20.78441664936085,89.09942669725508
+t_exit,"Pin leaves fork, fork rests on banking - FREE (supplementary) arc",9.62144470221138,26.000000064794943,88.94607333911374
